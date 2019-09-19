@@ -1,0 +1,19 @@
+#### **移动端问题**
+
+首先要在index文件中修改meta<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+然后在文件中引入 reset.css 来重置浏览器默认样式
+
+引入 border.css 解决某些手机像素问题
+
+导入 fastclick 防止手机 click时间300ms延迟;
+
+然后在main.js中import引入;
+
+然后使用fastClick.attach(document.body)
+
+```npm
+npm install fastclick --save
+```
+
+1rem = html font-size = 50px
