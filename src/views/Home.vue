@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import HomeHeader from '../components/HomeHeader'
-import Swiper from '../components/Swiper'
-import Icons from '../components/Icons'
-import Recommend from '../components/Recommend'
-import Weekend from '../components/Weekend'
+import HomeHeader from '../components/Home/HomeHeader'
+import Swiper from '../components/Home/Swiper'
+import Icons from '../components/Home/Icons'
+import Recommend from '../components/Home/Recommend'
+import Weekend from '../components/Home/Weekend'
 import axios from 'axios'
 export default {
   name: 'home',
@@ -48,7 +48,6 @@ export default {
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
-      console.log(this.iconList)
       // console.log(res)
     }
   },
