@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <swiper :options="swiperOption">
       <swiper-slide v-for="item of list" :key="item.id">
         <img class="swipter-img" :src="item.url">
       </swiper-slide>
@@ -44,7 +44,7 @@ export default {
     overflow hidden
     width 100%
     height 0
-    padding-bottom 31.25%
+    padding-bottom 28%
     .swipter-img
       width 100%
 </style>
