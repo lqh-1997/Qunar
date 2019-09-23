@@ -18,7 +18,7 @@
         </div>
       </div>
       <!--循环对象第二个值为key-->
-      <div class="area" v-for="(item,key) of cities" :key="key">
+      <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <!--对象里面是个数组，使用两层循环-->
         <div class="item-list" v-for="innerItem of item" :key="innerItem.id">
@@ -35,10 +35,21 @@ export default {
   name: 'List',
   props: {
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      // console.log(this.$refs.key)
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // console.log(this.$refs[this.letter])
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
