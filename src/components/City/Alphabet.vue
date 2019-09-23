@@ -61,6 +61,7 @@ export default {
         //   console.log(index)
         // }, 16)
         let that = this
+        // 此处使用防抖，只要触发滑动就会重置timer，减少浏览器工作
         this.timer = setTimeout(function () {
           const touchY = e.touches[0].clientY - 89
           const index = Math.floor((touchY - that.startY) / 20)
