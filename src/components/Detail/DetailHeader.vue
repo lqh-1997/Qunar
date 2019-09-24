@@ -74,6 +74,7 @@ export default {
     color #ffffff
     font-size .34rem
     background-color $bgcolor
+    z-index 99
     .arrow-left
       position absolute
       left 0
