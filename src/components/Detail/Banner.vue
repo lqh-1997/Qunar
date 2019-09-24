@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="banner" @click="showGallery">
-      <img class="banner-image" src="//img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg">
+      <img class="banner-image" :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">长隆野生动物世界(AAAAA景区)</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number"><span class="iconfont banner-icon">&#xe623;</span>109</div>
       </div>
     </div>
-    <gallery :imgs="imgs" v-show="show" @close="closeGallery"></gallery>
+    <gallery :imgs="gallaryImgs" v-show="show" @close="closeGallery"></gallery>
   </div>
 </template>
 
@@ -15,6 +15,11 @@
 import Gallery from '../Common/Gallery'
 export default {
   name: 'Banner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
       show: false,
