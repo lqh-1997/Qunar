@@ -5,14 +5,15 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.currentCity}}</div>
+            <!--<div class="button">{{this.$store.state.city}}</div>-->
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+          <div class="button-wrapper" v-for="item of hotCities" :key="item.id" @click="handleCityClick(item.name)">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -21,7 +22,7 @@
       <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <!--对象里面是个数组，使用两层循环-->
-        <div class="item-list" v-for="innerItem of item" :key="innerItem.id">
+        <div class="item-list" v-for="innerItem of item" :key="innerItem.id"  @click="handleCityClick(innerItem.name)">
           <div class="item border-bottom">{{innerItem.name}}</div>
         </div>
       </div>
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import BScroll from 'better-scroll'
 export default {
   name: 'List',
@@ -38,8 +40,27 @@ export default {
     hotCities: Array,
     letter: String
   },
+  methods: {
+    // 传递给store里面的action
+    handleCityClick (city) {
+      // this.$store.dispatch('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
   mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper)
+    // setTimeout(() => {
+    //   this.scroll = new BScroll(this.$refs.wrapper, {})
+    // }, 20)
+    this.$nextTick(() => {
+      this.scroll = new BScroll(this.$refs.wrapper, {})
+    })
   },
   watch: {
     letter () {

@@ -8,7 +8,8 @@
         输入城市/景点/游玩主题</div>
       <router-link to="/City">
         <div class="header-right">
-          {{this.city}}
+          <span class="header-right-desc">{{this.city}}</span>
+          <!--<span class="header-right-desc">{{this.$store.state.city}}</span>-->
           <span class="iconfont arrow-down">&#xe6aa;</span>
         </div>
       </router-link>
@@ -16,18 +17,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: {
-      type: String
-    }
+  computed: {
+    // 把vuex里面的数据映射到这个组件的computed的计算属性里(把city映射到这个组件名为city的计算属性之中)
+    ...mapState(['city'])
   }
 }
 </script>
 
 <style scoped lang="stylus">
   @import "~@css/varibles.styl"
+  @import "~@css/mixins.styl"
+  // 利用flex 1 使input框自适应大小，然后利用min-width来适应城市名长度的不同
   .header
     display flex
     line-height: $headHeight
@@ -41,12 +44,13 @@ export default {
         font-size 0.46rem
         padding-left 0.2rem
     .header-right
-      width 1.24rem
+      min-width 1.04rem
+      padding 0 0.1rem
       float right
       text-align center
       color #fff
       .arrow-down
-        font-size 0.36rem
+        font-size 0.3rem
     .header-input
       flex 1
       height 0.64rem

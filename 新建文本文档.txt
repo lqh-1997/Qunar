@@ -17,3 +17,7 @@ npm install fastclick --save
 ```
 
 1rem = html font-size = 50px
+
+
+
+一定一定要记得**this**指向的问题！！！可以使用**箭头函数**解决
