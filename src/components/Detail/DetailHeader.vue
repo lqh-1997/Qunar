@@ -37,8 +37,13 @@ export default {
       // console.log(document.documentElement.scrollTop)
     }
   },
+  // 这个绑定在了window事件上，所以在退出该页面的时候也会继续的执行
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  // 所以在退出该页面的时候要销毁这个事件监听器
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
