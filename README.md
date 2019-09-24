@@ -1,6 +1,6 @@
-# qunar
+# 仿去哪儿网
 
-## Project setup
+## 项目初始化
 ```
 npm install
 ```
