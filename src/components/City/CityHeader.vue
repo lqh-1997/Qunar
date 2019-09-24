@@ -34,6 +34,6 @@ export default {
       bottom 0
       width .64rem
       text-align center
-      font-size .50rem
+      font-size $iconSize
       color #ffffff
 </style>

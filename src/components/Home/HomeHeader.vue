@@ -41,7 +41,7 @@ export default {
       float left
       .arrow-left
         text-align center
-        font-size 0.46rem
+        font-size $iconSize
         padding-left 0.2rem
     .header-right
       min-width 1.04rem
