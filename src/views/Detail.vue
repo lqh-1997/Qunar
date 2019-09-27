@@ -44,7 +44,7 @@ export default {
         this.bannerImg = data.bannerImg
         this.gallaryImgs = data.gallaryImgs
       }
-      console.log(this.galleryImgs)
+      // console.log(this.galleryImgs)
     }
   },
   mounted () {

@@ -59,7 +59,9 @@ export default {
     //   this.scroll = new BScroll(this.$refs.wrapper, {})
     // }, 20)
     this.$nextTick(() => {
-      this.scroll = new BScroll(this.$refs.wrapper, {})
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        click: true
+      })
     })
   },
   watch: {
