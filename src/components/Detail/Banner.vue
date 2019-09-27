@@ -7,12 +7,15 @@
         <div class="banner-number"><span class="iconfont banner-icon">&#xe623;</span>109</div>
       </div>
     </div>
-    <gallery :imgs="gallaryImgs" v-show="show" @close="closeGallery"></gallery>
+    <fade>
+      <gallery :imgs="gallaryImgs" v-if="show" @close="closeGallery"></gallery>
+    </fade>
   </div>
 </template>
 
 <script>
 import Gallery from '../Common/Gallery'
+import Fade from '../Common/Fade'
 export default {
   name: 'Banner',
   props: {
@@ -35,7 +38,8 @@ export default {
     }
   },
   components: {
-    Gallery
+    Gallery,
+    Fade
   }
 }
 </script>
